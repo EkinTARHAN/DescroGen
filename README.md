@@ -1,8 +1,6 @@
 # DescroGen  
 **Ürün İsmi + Açıklama Üretici**
 
-![Project Logo](./assets/logo.png)
-
 **Proje Linki:**  
 [https://github.com/EkinTARHAN/descrogen](https://github.com/EkinTARHAN/descrogen)
 
