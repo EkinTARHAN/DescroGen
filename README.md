@@ -1,89 +1,116 @@
-# Ürün İsmi + Açıklama Üretici
+# DescroGen  
+**Ürün İsmi + Açıklama Üretici**
 
- DescroGen
+![Project Logo](./assets/logo.png)
+
+**Proje Linki:**  
+[https://github.com/EkinTARHAN/descrogen](https://github.com/EkinTARHAN/descrogen)
+
+**Canlı Demo (Opsiyonel):**  
+`http://127.0.0.1:5000` — lokal olarak çalıştırdığınızda erişilebilir.
 
 ## İçindekiler
 
-- [Proje Açıklaması](#proje-açıklaması)
-- [Özellikler](#özellikler)
-- [Teknoloji Yığını](#teknoloji-yığını)
-- [Ön Koşullar](#ön-koşullar)
-- [Kurulum](#kurulum)
-- [Kullanım](#kullanım)
-- [Proje Yapısı](#proje-yapısı)
-- [Dosyalar ve Scriptler](#dosyalar-ve-scriptler)
-- [Katkıda Bulunma](#katkıda-bulunma)
-- [Gelecek Geliştirmeler](#gelecek-geliştirmeler)
-- [Lisans](#lisans)
-- [İletişim](#iletişim)
+- [Proje Açıklaması](#proje-açıklaması)  
+- [Veri Seti](#veri-seti)  
+- [Özellikler](#özellikler)  
+- [Teknoloji Yığını](#teknoloji-yığını)  
+- [Ön Koşullar](#ön-koşullar)  
+- [Kurulum](#kurulum)  
+- [Kullanım](#kullanım)  
+- [Proje Yapısı](#proje-yapısı)  
+- [Dosyalar ve Scriptler](#dosyalar-ve-scriptler)  
+- [Katkıda Bulunma](#katkıda-bulunma)  
+- [Lisans](#lisans)  
+- [İletişim](#iletişim)  
 
 ## Proje Açıklaması
 
-Ürün İsmi + Açıklama Üretici projesi, kullanıcıdan aldığı ürün başlığına dayanarak otomatik metin açıklamaları üreten bir web uygulamasıdır. Bu proje, hem şablon tabanlı (rule-based) hem de veri-temelli (Markov zinciri) üretken yapay zeka tekniklerini bir arada kullanarak üç farklı açıklama önerisi sunar.
+DescroGen, kullanıcıdan aldığı ürün başlığına dayanarak otomatik metin açıklamaları üreten bir web uygulamasıdır.  
+Bu proje, hem şablon tabanlı (rule-based) hem de veri-temelli (Markov zinciri) üretken yapay zeka tekniklerini bir arada kullanarak üç farklı açıklama önerisi sunar:
 
-- **Şablon Tabanlı Üretim:** Önceden tanımlı cümle şablonları ve özellik listelerinden rastgele seçim yapar.
-- **Markov Zinciri Üretimi:** Eğitim verisindeki cümlelerden öğrenilen n-gram geçiş olasılıklarını kullanarak benzersiz metinler oluşturur.
-- **Dinamik Özellikler:** Her açıklamaya rastgele fiyat ve puan (★★★★★) eklenerek daha gerçekçi ürün tanıtımları hazırlanır.
+- **Şablon Tabanlı Üretim:** Önceden tanımlı cümle şablonları ve özellik listelerinden rastgele seçim yapar.  
+- **Markov Zinciri Üretimi:** Eğitim verisindeki cümlelerden öğrenilen n-gram geçiş olasılıklarını kullanarak benzersiz metinler oluşturur.  
+- **Dinamik Özellikler:** Her açıklamaya rastgele fiyat ve puan (★★★★★) eklenerek daha gerçekçi ürün tanıtımları hazırlanır.  
+
+## Veri Seti
+
+- **Ad:** Amazon Ürün Veri Seti  
+- **Dosya:** `data/urun_verisi.csv`  
+- **Link:** [Raw CSV](https://raw.githubusercontent.com/EkinTARHAN/descrogen/main/data/urun_verisi.csv)  
 
 ## Özellikler
 
-- Kullanıcı dostu web arayüzü (Flask tabanlı).
-- Kategori seçimine göre dinamik açıklama üretimi.
-- Hem rule-based hem de Markov tabanlı metin oluşturma modları.
-- Aynı başlık için üç farklı açıklama alternatifi.
-- Fiyat ve puan (5 üzerinden yıldız) bilgisi otomatik ekleme.
-- `.csv` dosyası ve `.txt` dosyalarıyla kolay veri yönetimi.
+- Kullanıcı dostu web arayüzü (Flask tabanlı).  
+- Kategori seçimine göre dinamik açıklama üretimi.  
+- Hem rule-based hem de Markov tabanlı metin oluşturma modları.  
+- Aynı başlık için üç farklı açıklama alternatifi.  
+- Fiyat ve puan (5 üzerinden yıldız) bilgisi otomatik ekleme.  
+- `.csv` dosyası ve `.txt` dosyalarıyla kolay veri yönetimi.  
 
 ## Teknoloji Yığını
 
-- Python 3.12.10 
-- Flask
-- Pandas
-- markovify
-- Jinja2
-- HTML / CSS / Bootstrap (veya tercih edilen stil kütüphanesi)
+- Python 3.12.10  
+- Flask  
+- Pandas  
+- markovify  
+- Jinja2  
+- HTML / CSS / Bootstrap (veya tercihinize göre başka bir stil kütüphanesi)  
 
 ## Ön Koşullar
 
-- Python 3.7 veya üzeri
-- Git
+- Python 3.7 veya üzeri  
+- Git  
 
 ## Kurulum
 
-1. Depoyu klonlayın:
+1. Depoyu klonlayın:  
    ```bash
-   git clone https://github.com/kullanici_adi/urun-aciklama-ureticisi.git
-   cd urun-aciklama-ureticisi
-   ```
-2. Sanal ortam oluşturun ve etkinleştirin:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Windows: venv\Scripts\activate
-   ```
-3. Gerekli paketleri yükleyin:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Veri dosyalarını oluşturun (opsiyonel):
-   ```bash
-   python convert_all_csvs.py
-   python populate_aciklamalar.py
-   ```
+   git clone https://github.com/EkinTARHAN/descrogen.git
+   cd descrogen
+Sanal ortam oluşturun ve etkinleştirin:
 
-## Kullanım
+bash
+Kopyala
+Düzenle
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+Gerekli paketleri yükleyin:
 
-1. Uygulamayı çalıştırın:
-   ```bash
-   python app.py
-   ```
-2. Tarayıcınızda `http://127.0.0.1:5000` adresine gidin.
-3. Açılan sayfadan kategori seçip "Üret" butonuna tıklayın.
-4. Üç farklı açıklamayı ve fiyat/puan bilgisini görüntüleyin.
-5. İsterseniz Markov modu için `generator.urun_uret(kategori, mode="markov")` parametresini kullanın.
+bash
+Kopyala
+Düzenle
+pip install -r requirements.txt
+(Opsiyonel) Veri dosyalarını oluşturun:
 
-## Proje Yapısı
+bash
+Kopyala
+Düzenle
+python convert_all_csvs.py
+python populate_aciklamalar.py
+Kullanım
+Uygulamayı çalıştırın:
 
-```
+bash
+Kopyala
+Düzenle
+python app.py
+Tarayıcınızda http://127.0.0.1:5000 adresine gidin.
+
+Açılan sayfadan kategori seçip Üret butonuna tıklayın.
+
+Üç farklı açıklamayı, fiyat ve puan bilgisini görüntüleyin.
+
+İsterseniz Markov modu için:
+
+python
+Kopyala
+Düzenle
+generator.urun_uret(kategori, mode="markov")
+Proje Yapısı
+cpp
+Kopyala
+Düzenle
 ├── app.py
 ├── generator.py
 ├── convert_all_csvs.py
@@ -100,33 +127,36 @@
 │   └── assets
 │       └── logo.png
 └── requirements.txt
-```
+Dosyalar ve Scriptler
+app.py: Flask sunucusu ve web arayüzü.
 
-## Dosyalar ve Scriptler
+generator.py: urun_uret fonksiyonunu barındırır (template + Markov modeller).
 
-- **app.py:** Flask sunucusu ve web arayüzü.
-- **generator.py:** `urun_uret` fonksiyonu; template ve Markov modellerini içerir.
-- **convert_all_csvs.py:** Amazon veri CSV’lerini `urun_verisi.csv` dosyasına dönüştürür.
-- **populate_aciklamalar.py:** Her kategori `.txt` dosyasını minimum cümle sayısına tamamlar.
-- **data/**: Ürün verisi ve açıklama örnekleri.
-- **templates/index.html:** Kullanıcı arayüzü.
+convert_all_csvs.py: Amazon ürün CSV’lerini birleştirip data/urun_verisi.csv oluşturur.
 
-## Katkıda Bulunma
+populate_aciklamalar.py: Her kategori .txt dosyasını asgari satır sayısına tamamlar.
 
-1. Depoyu fork’layın.
-2. Yeni bir branch oluşturun (`git checkout -b feature/yeni-özellik`).
-3. Değişikliklerinizi commit edin (`git commit -m 'Yeni özellik ekle'`).
-4. Branch’inizi push’layın (`git push origin feature/yeni-özellik`).
-5. Pull request oluşturun.
+data/: Ürün verisi (.csv) ve açıklama örnekleri (.txt).
 
-## Lisans
+templates/index.html: Kullanıcı arayüzü HTML şablonu.
 
-Bu proje MIT Lisansı ile lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakın.
+Katkıda Bulunma
+Depoyu fork’layın.
 
-## İletişim
+Yeni bir branch oluşturun (git checkout -b feature/yeni-özellik).
 
-- **Adınız Soyadınız** 
-- Ekin TARHAN
-- ekintrhn@gmail.com
-- GitHub: [EkinTARHAN](https://github.com/EkinTARHAN)
+Değişikliklerinizi commit edin (git commit -m "Yeni özellik ekle").
 
+Branch’inizi push’layın (git push origin feature/yeni-özellik).
+
+Pull request oluşturun.
+
+Lisans
+Bu proje MIT Lisansı ile lisanslanmıştır. Detaylar için LICENSE dosyasına bakın.
+
+İletişim
+Ekin TARHAN
+
+Email: ekintrhn@gmail.com
+
+GitHub: EkinTARHAN
